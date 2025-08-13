@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe 🎯</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 2.5em;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Game board container */
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 110px);
+      gap: 12px;
+      justify-content: center;
+      margin: 40px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* Game cells */
+    .cell {
+      width: 110px;
+      height: 110px;
+      background: white;
+      border-radius: 15px;
+      font-size: 3em;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .cell:hover {
+      transform: scale(1.1);
+      background: #ffdde1;
+    }
+
+    /* Winning highlight */
+    .highlight {
+      background: #fff9c4 !important;
+      box-shadow: 0px 0px 15px #fdd835;
+    }
+
+    /* Winner message */
+    .winner {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    /* Restart button */
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 1em;
+      font-weight: bold;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #2575fc, #6a11cb);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎯 Tic Tac Toe 🎯</h1>
+  <div class="board" id="board"></div>
+  <div class="winner" id="message"></div>
+  <button onclick="resetGame()">🔄 Restart Game</button>
+
+  <script>
+    let boardState = Array(9).fill("");
+    let currentPlayer = "❌";
+    let gameFinished = false;
+
+    const boardElement = document.getElementById("board");
+    const messageElement = document.getElementById("message");
+
+    function drawBoard() {
+      boardElement.innerHTML = "";
+      boardState.forEach((mark, index) => {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        cell.textContent = mark;
+        cell.addEventListener("click", () => handleMove(index));
+        boardElement.appendChild(cell);
+      });
+    }
+
+    function handleMove(index) {
+      if (boardState[index] !== "" || gameFinished) return;
+
+      boardState[index] = currentPlayer;
+      checkWinner();
+      currentPlayer = currentPlayer === "❌" ? "⭕" : "❌";
+      drawBoard();
+      if (gameFinished) highlightWinner();
+    }
+
+    function checkWinner() {
+      const winPatterns = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6]
+      ];
+
+      for (let pattern of winPatterns) {
+        const [a, b, c] = pattern;
+        if (boardState[a] && boardState[a] === boardState[b] && boardState[a] === boardState[c]) {
+          messageElement.textContent = `🎉 Player ${boardState[a]} wins!`;
+          gameFinished = pattern;
+          return;
+        }
+      }
+
+      if (!boardState.includes("")) {
+        messageElement.textContent = "😜 It's a tie!";
+        gameFinished = true;
+      }
+    }
+
+    function highlightWinner() {
+      if (Array.isArray(gameFinished)) {
+        const cells = document.querySelectorAll(".cell");
+        gameFinished.forEach(i => cells[i].classList.add("highlight"));
+      }
+    }
+
+    function resetGame() {
+      boardState = Array(9).fill("");
+      currentPlayer = "❌";
+      gameFinished = false;
+      messageElement.textContent = "";
+      drawBoard();
+    }
+
+    
+
+    
+
+    drawBoard();
+  </script>
+
+</body>
+</html>
