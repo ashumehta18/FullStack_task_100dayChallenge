@@ -1,14 +1,58 @@
 HTML GRAB UP 
 
 Hypertext MarkUp Language
-
-Heading tags = H1{largest} , H2, H3, H4, H5 , H6 {smallest}
 <html> This is the root tag for other all tags </html>
 !!! + enter = default html 
+
+Tag ? = Provides structure ,  meaning and formatting to text {Markup entity }
+https://chatgpt.com/s/m_68abebdb835481919ce0d095c91c9372
+
+Heading tags = H1{largest} , H2, H3, H4, H5 , H6 {smallest}
+its from h1 to h6 only afterwards if i will create h7 , h8 like then it will show no error but simply works like para tag .
+
 <head>  Meta data is stored here </head>
 <body> Data with which I can interact  with </body>
 
 Opening Tag  
 Closing Tag
+
+Ctrl+/ = comment
+/* */  = Multi Line Comment
+
+Tags = 
+1. <p>
+2. <a href = " link"> link value on webpage to appear </a> = when i want to link any other website or email , linkdin etc .  on my webpage . used to switch btw webpage 
+3. <li> </li> = list tag can be either ordered or unorderd 
+4.<ol><ol> = ordered{1,a,A,roman}
+5. unorderd =<ul> </ul> {dot , square , circle , disk}
+eg: - 
+<ol>
+<li> ashu</li>
+<li> sahaj </li>
+</ol>
+
+6. Table tag = used to create tables
+ <table>
+ root tag for table 
+    <tr> to create row
+        <td> column data</td>
+    </tr>
+</table>
+
+short cut = table>(tr>td*3)*3
+Breakdown:
+table → table element
+> → go inside
+tr → one row
+td*3 → 3 cells in that row
+(tr>td*3)*3 → repeat the row 3 times
+
+
+7. image tag = <img src= "source file of image url" alt = "write alternative text if for a chance image fails to load">
+8. div tag = 
+
+Q. how do i craete bookmark for various section so that i can reach the section when needed
+
+Q. how do i apply class id and use it ?
 
 
