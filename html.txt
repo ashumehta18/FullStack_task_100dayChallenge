@@ -55,4 +55,23 @@ Q. how do i craete bookmark for various section so that i can reach the section 
 
 Q. how do i apply class id and use it ?
 
+9. strong bold tag difference
+10. <i> </i> = italic 
+11. <u></u> = undeline
+12. subscript = base when i need to provide
+13. superscript = power when i want to give 
 
+14. <pre>
+         The 
+way   we keep 
+          our content here , 
+                             is similarlly vissible in our Ui.
+         </pre>
+
+
+Q. Tag vs element 
+ tag = is the only like <html>
+element is the opening and closing tag together with data embeded inside it 
+
+
+Q. arcticle vs sidebar tag
