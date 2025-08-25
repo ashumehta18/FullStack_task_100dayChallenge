@@ -1,0 +1,14 @@
+HTML GRAB UP 
+
+Hypertext MarkUp Language
+
+Heading tags = H1{largest} , H2, H3, H4, H5 , H6 {smallest}
+<html> This is the root tag for other all tags </html>
+!!! + enter = default html 
+<head>  Meta data is stored here </head>
+<body> Data with which I can interact  with </body>
+
+Opening Tag  
+Closing Tag
+
+
