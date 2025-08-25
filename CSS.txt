@@ -1,0 +1,5 @@
+Css = Cascading Style Sheet 
+provide styling to our basic web page 
+
+can be used inside html tags or extra .css file can be created that can be linked with the main webpage to load the desiging 
+<h1 style = background-color:"" , font:""> //it like this inside html tags 
